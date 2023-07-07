@@ -69,17 +69,19 @@ console.log(body);
 // Define the createPdf function
 async function createPdf(input){
     try{
+
+      let pdfDoc;
       if(input.fileType === 'Large system'){
 
-        const pdfDoc = await PDFDocument.load(await readFile('F41A - Solar PV Quotation Large.pdf'));
+         pdfDoc = await PDFDocument.load(await readFile('F41A - Solar PV Quotation Large.pdf'));
       }
 if(input.fileType === 'Medium system'){
 
-        const pdfDoc = await PDFDocument.load(await readFile('F41A - Solar PV Quotation Medium.pdf'));
+         pdfDoc = await PDFDocument.load(await readFile('F41A - Solar PV Quotation Medium.pdf'));
       }
       if(input.fileType === 'Small system'){
 
-        const pdfDoc = await PDFDocument.load(await readFile('F41A - Solar PV Quotation Small.pdf'));
+      pdfDoc = await PDFDocument.load(await readFile('F41A - Solar PV Quotation Small.pdf'));
       }
 
 const fields = pdfDoc.getForm().getFields().map((f )=> f.getName())
