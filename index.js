@@ -69,9 +69,18 @@ console.log(body);
 // Define the createPdf function
 async function createPdf(input){
     try{
-        const pdfDoc = await PDFDocument.load(await readFile('F41A - Solar PV.pdf'));
+      if(input.fileType === 'Large system'){
 
+        const pdfDoc = await PDFDocument.load(await readFile('F41A - Solar PV Quotation Large.pdf'));
+      }
+if(input.fileType === 'Medium system'){
 
+        const pdfDoc = await PDFDocument.load(await readFile('F41A - Solar PV Quotation Medium.pdf'));
+      }
+      if(input.fileType === 'Small system'){
+
+        const pdfDoc = await PDFDocument.load(await readFile('F41A - Solar PV Quotation Small.pdf'));
+      }
 
 const fields = pdfDoc.getForm().getFields().map((f )=> f.getName())
 
@@ -207,47 +216,6 @@ app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`))
 
 
 
-// async function createPdf(input, output){
-//     try{
-//         const pdfDoc = await PDFDocument.load(await readFile(input));
 
-
-
-// const fields = pdfDoc.getForm().getFields().map((f )=> f.getName())
-
-// console.log(
-//     {fields}
-// );
-
-
-// const form = pdfDoc.getForm();
-
-// const possibleFields = Array.from({length:52},(_,i)=>i);
-// possibleFields.forEach((possibleField)=>{
-//     try{
-//         form.getTextField(`Text${possibleField}`).setText(possibleField.toString());
-//     }catch (error){
-//         console.log(error)
-//     }
-// })
-
-
-// // form.getTextField('Text2').setText('Haseeb Ali Khan')
-
-
-
-//         const pdfBytes =await pdfDoc.save();
-
-//         await writeFile(output,pdfBytes);
-//         console.log('PDF created')
-
-//     } catch (err){
-//         console.log(err);
-//     }
-// }
-
-
-
-// createPdf('F41A - Solar PV.pdf','output.pdf')
 
 
