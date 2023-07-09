@@ -8,7 +8,7 @@ const nodemailer = require('nodemailer');
 const { google } = require('googleapis');
 // Initialize express and define a port
 const app = express()
-const PORT = 3000
+const PORT = 3001
 
 let FileCreated ='No'
 const clientId = process.env.CLIENT_ID || '254700513049-pv85sdjep6ln6c7ht8emdfm9qn503o6g.apps.googleusercontent.com';
@@ -69,7 +69,7 @@ console.log(body);
 // Define the createPdf function
 async function createPdf(input){
     try{
-
+console.log("FileType====>",input.fileType);
       let pdfDoc;
       if(input.fileType === 'Large system'){
 
@@ -175,7 +175,7 @@ if(FileCreated==="Yes"){
       attachments: [
           {
             filename: 'F41A - Solar PV Quotation.pdf',
-            path: '/Field Filler/F41A - Solar PV Quotation.pdf'
+            path: '/email-sebding-server-gheco/F41A - Solar PV Quotation.pdf'
           }
         ]
     };
