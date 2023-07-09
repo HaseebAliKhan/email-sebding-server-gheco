@@ -11,8 +11,8 @@ const app = express()
 const PORT = 3000
 
 let FileCreated ='No'
-const clientId = process.env.CLIENT_ID;
-const clientSecret = process.env.CLIENT_SECRET ;
+const clientId = process.env.CLIENT_ID || '254700513049-pv85sdjep6ln6c7ht8emdfm9qn503o6g.apps.googleusercontent.com';
+const clientSecret = process.env.CLIENT_SECRET || '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';
 
 // Create an OAuth2 client object with your credentials
 const oauth2Client = new google.auth.OAuth2(
@@ -21,7 +21,7 @@ const oauth2Client = new google.auth.OAuth2(
   'https://developers.google.com/oauthplayground'
 );
 
-let refreshToken = process.env.REFRESH_TOKEN
+let refreshToken = "1//04FaZM_7NnRplCgYIARAAGAQSNwF-L9Ir-pVZTfN3_kYtj1CNR-Wsw9kN2HJI7Hx5plqrbAuSpDeyM0b59i7x3It0O_urNs1p6So"
 
 oauth2Client.setCredentials({
     refresh_token: refreshToken
