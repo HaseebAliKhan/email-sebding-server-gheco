@@ -105,10 +105,10 @@ const form = pdfDoc.getForm();
 if(input.username && input.surname){
 
     form.getTextField('Text1').setText(`${input.username} ${input.surname}`)
-    form.getTextField('Text49').setText(`${input.username} ${input.surname}`)
+    form.getTextField('Text4').setText(`${input.username} ${input.surname}`)
 }
 if(input.address){
-    form.getTextField('Text3').setText(`${input.address}`)
+    form.getTextField('Text2').setText(`${input.address}`)
 }
 // if(input.email_address){
 //     form.getTextField('Text3').setText(`${input.email_address}`)
@@ -119,39 +119,39 @@ let month = date.getMonth() + 1; //January is 0!
 let year = date.getFullYear();
 let currentDate = `${day}-${month}-${year}`
 
-form.getTextField('Text4').setText(currentDate)
-form.getTextField('Text51').setText(currentDate)
-let k=5
-for(let i =0;i<input.products.length;i++){
+form.getTextField('Text3').setText(currentDate)
+form.getTextField('Text6').setText(currentDate)
+// let k=5
+// for(let i =0;i<input.products.length;i++){
  
 
- console.log(
-    "Products====>",input.products[i]
-);
-    form.getTextField(`Text${k}`).setText(input.products[i])
+//  console.log(
+//     "Products====>",input.products[i]
+// );
+//     form.getTextField(`Text${k}`).setText(input.products[i])
 
 
-k++
-}
-let sum=0
-let j =38
-for(let i =0;i<input.prices.length;i++){
+// k++
+// }
+// let sum=0
+// let j =38
+// for(let i =0;i<input.prices.length;i++){
     
     
 
-    console.log(
-        "Prices====>",input.prices[i]
-    );
+//     console.log(
+//         "Prices====>",input.prices[i]
+//     );
             
-            form.getTextField(`Text${j}`).setText(input.prices[i].toString())
-            sum =sum + Number(input.prices[i])
+//             form.getTextField(`Text${j}`).setText(input.prices[i].toString())
+//             sum =sum + Number(input.prices[i])
         
-    j++
-}
+//     j++
+// }
 
-form.getTextField(`Text48`).setText(sum.toString())
-sumService = sum + 2220
-form.getTextField(`Text52`).setText(sumService.toString())
+// form.getTextField(`Text48`).setText(sum.toString())
+// sumService = sum + 2220
+// form.getTextField(`Text52`).setText(sumService.toString())
 
 
         const pdfBytes =await pdfDoc.save();
